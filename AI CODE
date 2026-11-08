@@ -1,0 +1,67 @@
+
+package s;
+
+public class ExpandableStack {
+
+    private char[] elements;
+    private int count;
+
+    public ExpandableStack() {
+        elements = new char[2];
+        count = 0;
+    }
+
+    public void push(char value) {
+
+        if (isFull()) {
+
+            System.out.println("Stack is full; its current size is " + elements.length);
+
+            int newSize = elements.length * 2;
+
+            System.out.println("Will be expanding the size to " + newSize);
+
+            char[] newArray = new char[newSize];
+
+            for (int i = 0; i < count; i++) {
+                newArray[i] = elements[i];
+            }
+
+            elements = newArray;
+        }
+
+        elements[count] = value;
+        count++;
+    }
+
+    public char pop() {
+
+        if (isEmpty()) {
+            throw new IllegalStateException("Stack is empty");
+        }
+
+        count--;
+        return elements[count];
+    }
+
+    public char top() {
+
+        if (isEmpty()) {
+            throw new IllegalStateException("Stack is empty");
+        }
+
+        return elements[count - 1];
+    }
+
+    public int size() {
+        return count;
+    }
+
+    public boolean isEmpty() {
+        return count == 0;
+    }
+
+    public boolean isFull() {
+        return count == elements.length;
+    }
+}
