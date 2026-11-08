@@ -1,1 +1,10 @@
+DIFFERENCE BETWEEN AI AND STUDENT CODE
+
+QUESTION 1:
+The major differences between the AI-generated code and my code are more in the expansion process and how the stack operation are working.
+The AI-generated performs a expansion in the push() method while my code uses a seperate expand method to make it more organized.The AI-generated
+code is doubling the array capacity,while my code increases it by a factor of 4.When we are copying the elements,the AI-generated code is only copying the 
+number of characters stored using count while my code is copying the entire preivous array using element.length.Another difference is that pop() and top()
+uses a variable called lastPosition to name the top element while the AI-generated code uses count-1.Another important difference is that the AI-generated
+code throws an exception when the stack is empty,while my code displays a error message and returns a space characters.
 
