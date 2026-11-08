@@ -6,5 +6,6 @@ The AI-generated performs a expansion in the push() method while my code uses a 
 code is doubling the array capacity,while my code increases it by a factor of 4.When we are copying the elements,the AI-generated code is only copying the 
 number of characters stored using count while my code is copying the entire preivous array using element.length.Another difference is that pop() and top()
 uses a variable called lastPosition to name the top element while the AI-generated code uses count-1.Another important difference is that the AI-generated
-code throws an exception when the stack is empty,while my code displays a error message and returns a space characters.
+code throws an exception when the stack is empty,while my code displays a error message and returns a space characters. Though,I feel that the AI-generated 
+code is uses much more simpler methods to implement function and uses a factor of 2 and uses much less memory.
 
