@@ -9,3 +9,51 @@ uses a variable called lastPosition to name the top element while the AI-generat
 code throws an exception when the stack is empty,while my code displays a error message and returns a space characters. Though,I feel that the AI-generated 
 code is uses much more simpler methods to implement function and uses a factor of 2 and uses much less memory.
 
+Question 2:
+ii) Pseudocode
+    Algorithm StringTester(String input)
+        Input A string of length n made of characters '(',')' and '*' in random order and repetition.
+        The Input string always ends with '$'. '*' is a wildcard that can act as '(', ')' or be ignored to make
+        sure that every open parenthesis has a closing parenthesis
+        Output True if the string is valid, False otherwise
+
+        Let S be an empty Stack
+        let k be the minimum number of open parentheses allowed on the stack
+        let isValid be a bolean value that says if the String is valid
+        for i = 0 to n-1 do
+            current = input.charAt(i)
+            if current = '$' then
+                isValid = (k = 0)
+                break
+            else if current = '(' then
+                S.push(current)
+                k++
+            else if current = ')'then
+                if S.isEmpty() then
+                    break
+                S.pop()
+                if k > 0 then
+                    k--
+            else if current = '*' then
+                S.push(current)
+                if k > 0 then
+                    k--
+        return isValid
+
+iii) The time complexity of the algorithm is O(n) because it has a for loop that goes through a string of size n. Thus, the time Complexity
+depends on the length of the input String.
+
+The space complexity will also be O(n) because the worst case scenario is an input string with n '*' and '('. Since they are the characters
+that go on the stack, they are what makes it grow.
+
+AI SOLUTION COMPARISON
+The first major difference is that the AI code will use two helper methods. It also uses an array to determine the behaviour of the '*'. The isBalanced()
+method is used to check the behaviour chosen for '*' and Implements its corresponding behaviour. if the array contains a 0, '*' is skipped, of ot contains a 1 '*' behaves as '(' and if it
+contains a 2 '*' behaves as ')'.The second method advancedChoices will increment the value determining the behaviour in the choice array. In the Student Implementation, those two methods are
+used in the form of if statements and a counter that counts the number of open parentheses. That number is then decremented everytime '*' gets pushed
+to the stack. '*' always gets pushed to the stack which covers the behaviour for '('. Furthermore,the counter for '(' cannot be less than 0. That allows to implement the ')' behaviour of the wildcard. When '$'
+is reached the program checks if the counter for '(' is 0, returns true if it is and false if it is not.
+
+There are many efficiency issues with the generated AI solution. For example, the way that the AI implements the solution requires to go through the input string once
+to count '*' and twice to go through the string. Since the student option only goes through the input String once, it is more efficiently in respect to time complexity.
+
